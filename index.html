@@ -1,1 +1,28 @@
-<!doctype html><meta charset=utf-8><title>Achadinhos da Nila</title><p>Vitrine em atualização...</p>
+<!doctype html><html lang=pt-BR><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><title>Achados do dia</title>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f4f4f4;color:#222}
+header{background:#fff159;padding:18px 16px}h1{margin:0;font-size:22px}
+.note{font-size:13px;color:#555;margin:6px 0 0}
+.find{margin:12px 16px}.find input{width:100%;padding:12px;font-size:16px;border:1px solid #ccc;border-radius:10px;box-sizing:border-box}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;padding:12px 16px}
+.card{background:#fff;border-radius:12px;padding:10px;text-decoration:none;color:inherit;position:relative;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:1;object-fit:contain}.card h3{font-size:14px;font-weight:500;margin:8px 0}
+.code{position:absolute;top:8px;left:8px;background:#3483fa;color:#fff;font-size:12px;padding:2px 8px;border-radius:8px}
+.price{font-size:18px;font-weight:700;margin-top:auto}.off{color:#00a650;font-size:14px}
+.btn{margin-top:8px;background:#3483fa;color:#fff;text-align:center;padding:8px;border-radius:8px;font-size:14px}
+.coupons{margin:0 16px;background:#fff;border-radius:12px;padding:8px 16px}
+footer{font-size:12px;color:#666;padding:20px 16px}
+</style></head><body>
+<header><h1>Achados do dia no Mercado Livre</h1>
+<p class=note>Atualizado em 15/11/2026 02:35. Viu um código no post? Digite abaixo.</p></header>
+<div class=find><input id=q placeholder="Código do post (ex.: A07) ou nome do produto"></div>
+
+<div class=grid id=grid></div>
+<footer>Publicidade: esta página contém links de afiliado do Mercado Livre. Ao comprar por eles, recebo uma comissão,
+sem custo extra para você. Preços e estoque podem mudar a qualquer momento — confira no site antes de comprar.</footer>
+<script>
+const q=document.getElementById('q');q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();
+document.querySelectorAll('.card').forEach(c=>{c.style.display=(!v||c.id.toLowerCase()===v||c.textContent.toLowerCase().includes(v))?'':'none'})});
+if(location.hash){q.value=location.hash.slice(1);q.dispatchEvent(new Event('input'))}
+</script></body></html>
